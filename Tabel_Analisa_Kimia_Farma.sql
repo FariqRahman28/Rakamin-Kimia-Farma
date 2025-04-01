@@ -1,18 +1,18 @@
 CREATE TABLE kimia_farma.kf_analysis AS
 SELECT 
-    ft.transaction_id,
-    ft.date,
-    ft.branch_id,  
-    kc.branch_name,
-    kc.kota,
-    kc.provinsi,
-    ft.rating AS rating_transaksi,  
-    ft.customer_name,
-    ft.product_id,
-    kp.product_name,
-    kp.price AS actual_price,  
-    ft.discount_percentage,
-
+    ft.transaction_id,                      -- ID transaksi
+    ft.date,                                -- Tanggal transaksi
+    ft.branch_id,                           -- ID cabang
+    kc.branch_name,                         -- Nama cabang
+    kc.kota,                                -- Kota cabang
+    kc.provinsi,                            -- Provinsi cabang
+    kc.rating AS rating_cabang,             -- Penilaian cabang
+    ft.customer_name,                       -- Nama customer
+    ft.product_id,                          -- ID produk obat
+    kp.product_name,                        -- Nama produk obat
+    kp.price AS actual_price,               -- Harga produk obat
+    ft.discount_percentage,                 -- Persentase diskon
+    
     -- Menghitung persentase gross laba berdasarkan harga obat
     CASE 
         WHEN kp.price <= 50000 THEN 0.10
