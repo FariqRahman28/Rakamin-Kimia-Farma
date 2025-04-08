@@ -12,7 +12,8 @@ SELECT
     kp.product_name,                        -- Nama produk obat
     kp.price AS actual_price,               -- Harga produk obat
     ft.discount_percentage,                 -- Persentase diskon
-    
+    ft.rating AS rating_transaksi,          -- Rating transaksi dari customer
+
     -- Menghitung persentase gross laba berdasarkan harga obat
     CASE 
         WHEN kp.price <= 50000 THEN 0.10
